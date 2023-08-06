@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 import { Form, Field, useFormik, Formik } from "formik";
 
 export default function Home(props) {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useFormik, Formik, Form, Field } from "formik";
 import UpdatePassword from "@/components/updatePassword";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 
 function Admin() {
   const [show, setShow] = useState(false);

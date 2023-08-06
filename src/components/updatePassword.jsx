@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, useFormik } from "formik";
-import { useGlobalContext } from "@/pages/context";
+import { useGlobalContext } from "@/context";
 
 function UpdatePassword() {
   const [loading, setLoading] = useState(false);
   const [inputType, setInputType] = useState("password");
-  const { formInfo, setFormInfo } = useGlobalContext();
-  const [showPassword, setShowPassword, showEmail] = useState(false);
+  const { formInfo, setFormInfo, showEmail, showPassword, setShowPassword } =
+    useGlobalContext();
 
   const initialValues = {
     password: "",
