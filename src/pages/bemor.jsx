@@ -29,7 +29,6 @@ function Bemorlar() {
   useEffect(() => {
     fetchFunck();
   }, []);
-  console.log(allPatsient);
   return (
     <div className="min-h-[100vh]  bg-[#F7FEFE] pt-10">
       <div className="w-[1035px] mx-auto">

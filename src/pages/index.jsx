@@ -15,7 +15,6 @@ export default function Home(props) {
   };
   let info;
   const onSubmit = async (data) => {
-    console.log(data);
     setLoading(true);
     const response = await fetch(
       "https://vitainline.uz/api/v1/auth/signin/admin",

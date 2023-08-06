@@ -36,7 +36,6 @@ function Tavsiyanoma() {
   useEffect(() => {
     fetchFunck();
   }, []);
-  console.log(allRecom);
   return (
     <div className="min-h-[100vh]  bg-[#F7FEFE]">
       <div className="w-[1035px] mx-auto">

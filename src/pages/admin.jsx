@@ -19,7 +19,6 @@ function Admin() {
   const initialValues = {
     email: "",
   };
-  console.log(initialValues);
   const UpdateEmailBtn = () => {
     setFormInfo(true);
     setShowEmail(true);
@@ -32,16 +31,12 @@ function Admin() {
   };
 
   const onSubmit = async (data) => {
-    console.log(data);
     setLoading(true);
     let token = localStorage.getItem("token");
     let url;
 
     const response = await fetch("https://vitainline.uz/api/v1/admin/email", {
       method: "PUT",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -123,7 +118,7 @@ function Admin() {
                     className="border border-[#D7E6E7] rounded-[12px] w-full p-2 dark:bg-white dark:text-black"
                     type="email"
                     autoComplete="off"
-                    placeholder={"Emailni kiriting"}
+                    placeholder="Emailni kiriting"
                   />
                 </div>
                 <button
