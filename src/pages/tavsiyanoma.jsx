@@ -164,7 +164,7 @@ function Tavsiyanoma() {
           ) : (
             <div className="w-[194px] text-center mx-auto my-[150px]">
               <span className="block bg-[url('../images/davolash/history.png')] mx-auto w-20 h-20 bg-center rounded-[80px] bg-[#EAF9FB] bg-no-repeat"></span>
-              <p className="text-[#759495]">Ma'lumot y'oq</p>
+              <p className="text-[#759495]">Ma&apos;lumot y&apos;oq</p>
             </div>
           )}
         </div>

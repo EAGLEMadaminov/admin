@@ -129,7 +129,7 @@ function Davolash() {
                 className="bg-[#1BB7B5] py-2 rounded-[12px] ml-5 flex items-center text-white px-[30px] "
                 href="/account/patsient/davolash/add"
               >
-                <AiOutlinePlus className="font-[500] mr-4" /> qo'shish
+                <AiOutlinePlus className="font-[500] mr-4" /> qo&apos;shish
               </Link>
             </div>
           </div>
