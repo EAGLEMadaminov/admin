@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Formik, useFormik, Field, Form } from "formik";
-import img from "../../images/cite-logo.png";
+import img from "../images/cite-logo.png";
 import Image from "next/image";
 import { BsArrowLeft } from "react-icons/bs";
 import CircularJSON from "circular-json";
 
-function Add() {
+function UpdateAdvertising(data) {
+  const id = data.data.id;
   const initialValues = {
     title: "",
     description: "",
@@ -14,22 +15,25 @@ function Add() {
   const onSubmit = async (data) => {
     console.log(data);
     let token = localStorage.getItem("token");
-    const response = await fetch("https://vitainline.uz/api/v1/pills", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: CircularJSON.stringify(data),
-    });
+    const response = await fetch(
+      `https://vitainline.uz/api/v1/advertisings/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: CircularJSON.stringify(data),
+      }
+    );
 
     if (response.status === 200) {
-      window.location.pathname = "/pills";
+      window.location.pathname = "/advertising";
     }
   };
 
   const GoToBackBtn = () => {
-    window.location.pathname = "/pills";
+    window.location.pathname = "/advertising";
   };
   const formik = useFormik({
     initialValues,
@@ -63,17 +67,17 @@ function Add() {
           <Formik initialValues={initialValues} onSubmit={onSubmit}>
             <Form className="w-[400px] mx-auto my-10 flex flex-col justify-center  ">
               <label htmlFor="title" className="m-3">
-                Nomi
+                {data.data.title}
               </label>
               <Field
                 name="title"
                 className="border border-[#D7E6E7] rounded-[12px] w-full p-2 dark:bg-white dark:text-black"
                 type="text"
                 autoComplete="off"
-                placeholder="Dori nomini kiriting"
+                placeholder="Yangi dori nomini kiriting"
               />
               <label htmlFor="description" className="m-3">
-                Ma&apos;lumot
+                {data.data.description}
               </label>
               <Field
                 name="description"
@@ -96,7 +100,7 @@ function Add() {
                 type="submit"
                 className="mt-[24px] transform- py-[13px] bg-gradient-to-t from-[#1BB7B5] to-[#0EC5C9] text-white rounded-[12px]  font-[500] hover:bg-gradient-to-t hover:from-[#0F9694] hover:to-[#0A7476]"
               >
-                Qo&apos;shish
+                Update
               </button>
             </Form>
           </Formik>
@@ -106,4 +110,4 @@ function Add() {
   );
 }
 
-export default Add;
+export default UpdateAdvertising;
