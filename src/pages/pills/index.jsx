@@ -5,10 +5,14 @@ import { BsArrowLeft } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { BsArrowRight } from "react-icons/bs";
 import moment from "moment/moment";
+import { useGlobalContext } from "@/context";
 
 function Dorilar() {
   const [hasInfo, setHasInfo] = useState(false);
   const [allPills, setAllPills] = useState("");
+  const [itemUp, setItemUp] = useState({});
+  const { updateItem, setUpdateItem } = useGlobalContext();
+  const [isUpdate, setIsUpdate] = useState(false);
 
   const router = useRouter();
 
@@ -57,6 +61,19 @@ function Dorilar() {
     setAllPills(newA);
   };
 
+  const upDateBtn = (item) => {
+    setItemUp(item);
+    setIsUpdate(true);
+  };
+  console.log(itemUp);
+
+  useEffect(() => {
+    setUpdateItem(itemUp);
+    if (isUpdate) {
+      // window.location.pathname = "/pills/add";
+    }
+  });
+  console.log(updateItem);
   return (
     <div className="min-h-[100vh]  bg-[#F7FEFE]">
       <div className="w-[1035px] mx-auto">
@@ -144,7 +161,7 @@ function Dorilar() {
                         </td>
                         <td className="py-2">{item.description}</td>
                         <td>
-                          <button>
+                          <button onClick={() => upDateBtn(item)}>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"

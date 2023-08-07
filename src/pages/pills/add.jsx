@@ -4,8 +4,12 @@ import img from "../../images/cite-logo.png";
 import Image from "next/image";
 import { BsArrowLeft } from "react-icons/bs";
 import CircularJSON from "circular-json";
+import { useGlobalContext } from "@/context";
 
 function Add() {
+  const [inputValues, setInputValues] = useState("");
+  const { upDateItem, setUpdateItem } = useGlobalContext();
+  console.log(upDateItem);
   const initialValues = {
     title: "",
     description: "",
@@ -69,7 +73,9 @@ function Add() {
                 name="title"
                 className="border border-[#D7E6E7] rounded-[12px] w-full p-2 dark:bg-white dark:text-black"
                 type="text"
+                value={inputValues}
                 autoComplete="off"
+                onChange={(e) => setInputValues(e.target.value)}
                 placeholder="Dori nomini kiriting"
               />
               <label htmlFor="description" className="m-3">

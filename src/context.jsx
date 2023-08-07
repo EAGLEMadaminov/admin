@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { Suspense, useContext, useState } from "react";
 
 const Appcontext = React.createContext();
 
@@ -7,6 +7,8 @@ const AppProvider = ({ children }) => {
   const [formInfo, setFormInfo] = useState(false);
   const [showEmail, setShowEmail] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [updateItem, setUpdateItem] = useState({});
+  const [isUpdate, setIsUpdate] = useState(false);
 
   return (
     <Appcontext.Provider
@@ -19,6 +21,10 @@ const AppProvider = ({ children }) => {
         setShowEmail,
         showPassword,
         setShowPassword,
+        updateItem,
+        setUpdateItem,
+        isUpdate,
+        setIsUpdate,
       }}
     >
       {children}
