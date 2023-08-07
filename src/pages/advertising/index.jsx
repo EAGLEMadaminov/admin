@@ -35,7 +35,7 @@ function Advertising() {
   }, []);
 
   const gotoAddBtn = () => {
-    window.location.pathname = "/advertising  dark:text-black/add";
+    window.location.pathname = "/advertising";
   };
 
   const deleteBtn = async (id) => {
