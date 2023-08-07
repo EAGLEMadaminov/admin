@@ -8,8 +8,8 @@ import { useGlobalContext } from "@/context";
 
 function Add() {
   const [inputValues, setInputValues] = useState("");
-  const { upDateItem, setUpdateItem } = useGlobalContext();
-  console.log(upDateItem);
+  const { updateItem, setUpdateItem } = useGlobalContext();
+  console.log(updateItem);
   const initialValues = {
     title: "",
     description: "",

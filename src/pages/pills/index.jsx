@@ -70,9 +70,9 @@ function Dorilar() {
   useEffect(() => {
     setUpdateItem(itemUp);
     if (isUpdate) {
-      // window.location.pathname = "/pills/add";
+      window.location.pathname = "/pills/add";
     }
-  });
+  }, [setUpdateItem, isUpdate, itemUp]);
   console.log(updateItem);
   return (
     <div className="min-h-[100vh]  bg-[#F7FEFE]">
@@ -115,6 +115,7 @@ function Dorilar() {
               </button>
             </div>
           </div>
+
           <div className=" text-center  mx-10">
             {hasInfo ? (
               <table className="table mx-auto ">
