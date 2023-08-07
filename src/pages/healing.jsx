@@ -63,7 +63,7 @@ function Davolash() {
                 <BsArrowLeft className="mx-3" />
                 orqaga
               </button>
-              <h3 className="text-center ml-[150px] font-bold text-[25px]">
+              <h3 className="text-center ml-[150px] font-bold text-[25px]  dark:text-black">
                 Davolashlar ro&apos;yhati
               </h3>
             </div>
@@ -72,7 +72,7 @@ function Davolash() {
             {hasInfo ? (
               <table className="table mx-auto ">
                 <thead>
-                  <tr>
+                  <tr className=" dark:text-black">
                     <th className="py-5 px-1 text-left w-[50px]">№</th>
                     <th className="py-5 px-1 text-left w-[200px]">Dori nomi</th>
                     <th className="py-5 px-1 text-left w-[250px]">
@@ -92,7 +92,7 @@ function Davolash() {
                 <tbody>
                   {allDavolash.map((item, index) => {
                     return (
-                      <tr key={index} className="text-left">
+                      <tr key={index} className="text-left  dark:text-black">
                         <td className="py-2">{index + 1}</td>
                         <td className="py-2 text-left">{item.pill}</td>
                         <td className="py-2">{item.startedDate} </td>

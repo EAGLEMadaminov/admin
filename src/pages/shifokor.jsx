@@ -42,7 +42,7 @@ function Shifokor() {
                 <BsArrowLeft className="mx-3" />
                 orqaga
               </button>
-              <h3 className="text-center ml-[150px] font-bold text-[25px]">
+              <h3 className="text-center ml-[150px] font-bold text-[25px]  dark:text-black">
                 Shifokorlar ro&apos;yhati
               </h3>
             </div>
@@ -50,25 +50,41 @@ function Shifokor() {
           {hasInfo ? (
             <table className="table mx-auto ">
               <thead>
-                <tr>
-                  <th className="py-5 text-left w-[50px]">№</th>
-                  <th className="py-5 text-left w-[200px]">Ism</th>
-                  <th className="py-5 text-left w-[[200px]">Lavozim</th>
-                  <th className="py-5 text-left w-[100px]">Viloyat</th>
-                  <th className="py-5 text-left w-[100px]">Mutaxasisligi</th>
-                  <th className="py-5 text-left w-[100px]">Ish joyi</th>
+                <tr className=" dark:text-black">
+                  <th className="py-5 text-left w-[50px] dark:text-black">№</th>
+                  <th className="py-5 text-left w-[200px]  dark:text-black">
+                    Ism
+                  </th>
+                  <th className="py-5 text-left w-[[200px]  dark:text-black">
+                    Lavozim
+                  </th>
+                  <th className="py-5 text-left w-[100px]  dark:text-black">
+                    Viloyat
+                  </th>
+                  <th className="py-5 text-left w-[100px]  dark:text-black">
+                    Mutaxasisligi
+                  </th>
+                  <th className="py-5 text-left w-[100px]  dark:text-black">
+                    Ish joyi
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {allDoctor.map((item, index) => {
                   return (
-                    <tr key={index}>
-                      <td className="py-2">{index + 1}</td>
-                      <td className="py-2">{item.fullname}</td>
-                      <td className="py-2">{item.position} </td>
-                      <td className="py-2">{item.province}</td>
-                      <td className="py-2">{item.specialty}</td>
-                      <td className="py-2">{item.workplace}</td>
+                    <tr key={index} className=" dark:text-black">
+                      <td className="py-2  dark:text-black">{index + 1}</td>
+                      <td className="py-2  dark:text-black">{item.fullname}</td>
+                      <td className="py-2  dark:text-black">
+                        {item.position}{" "}
+                      </td>
+                      <td className="py-2  dark:text-black">{item.province}</td>
+                      <td className="py-2  dark:text-black">
+                        {item.specialty}
+                      </td>
+                      <td className="py-2  dark:text-black">
+                        {item.workplace}
+                      </td>
                     </tr>
                   );
                 })}

@@ -90,6 +90,7 @@ export default function Home(props) {
                   className="border border-[#D7E6E7] rounded-[12px] p-2 dark:bg-white dark:text-black"
                   type="email"
                   autoComplete="off"
+                  placeholder="Emailni kiriting"
                 />
                 <label
                   htmlFor="password"

@@ -102,7 +102,7 @@ function Dorilar() {
             {hasInfo ? (
               <table className="table mx-auto ">
                 <thead>
-                  <tr>
+                  <tr className=" dark:text-black">
                     <th className="py-5 px-1 text-left w-[50px]">№</th>
                     <th className="py-5 px-1 text-left w-[200px]">Dori nomi</th>
                     <th className="py-5 px-1 text-left w-[150px]">
@@ -123,7 +123,7 @@ function Dorilar() {
                 <tbody>
                   {allPills.map((item, index) => {
                     return (
-                      <tr key={index} className="text-left">
+                      <tr key={index} className="text-left  dark:text-black">
                         <td className="py-2 px-1">{index + 1}</td>
                         <td className="py-2 px-1 text-left">{item.title}</td>
                         <td className="py-2 px-1">

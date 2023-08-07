@@ -5,7 +5,9 @@ import Image from "next/image";
 import { BsArrowLeft } from "react-icons/bs";
 import CircularJSON from "circular-json";
 
-function Add() {
+function Add(e) {
+  const [hasEdit, setHasEdit] = useState(false);
+  console.log(e.currentTarget);
   const initialValues = {
     title: "",
     description: "",

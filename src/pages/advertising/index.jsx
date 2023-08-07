@@ -35,7 +35,7 @@ function Advertising() {
   }, []);
 
   const gotoAddBtn = () => {
-    window.location.pathname = "/advertising/add";
+    window.location.pathname = "/advertising  dark:text-black/add";
   };
 
   const deleteBtn = async (id) => {
@@ -104,18 +104,22 @@ function Advertising() {
               <table className="table mx-auto ">
                 <thead>
                   <tr>
-                    <th className="py-5 px-1 text-left w-[50px]">№</th>
-                    <th className="py-5 px-1 text-left w-[200px]">Dori nomi</th>
-                    <th className="py-5 px-1 text-left w-[150px]">
+                    <th className="py-5 px-1 text-left w-[50px]  dark:text-black">
+                      №
+                    </th>
+                    <th className="py-5 px-1 text-left w-[200px]  dark:text-black">
+                      Dori nomi
+                    </th>
+                    <th className="py-5 px-1 text-left w-[150px]  dark:text-black">
                       Qo&apos;shilgan vaqt
                     </th>
-                    <th className="py-5 px-1 text-left w-[150px]">
+                    <th className="py-5 px-1 text-left w-[150px]  dark:text-black">
                       Tugagan vaqt
                     </th>
-                    <th className="py-5 px-1 text-left w-[100px]">
+                    <th className="py-5 px-1 text-left w-[100px]  dark:text-black">
                       Video link
                     </th>
-                    <th className="py-5 px-1 text-left w-[200px]">
+                    <th className="py-5 px-1 text-left w-[200px]  dark:text-black">
                       Ma&apos;lumot
                     </th>
                     <th>dmkwl</th>
@@ -125,25 +129,31 @@ function Advertising() {
                   {allAdvertising.map((item, index) => {
                     return (
                       <tr key={index} className="text-left">
-                        <td className="py-2 px-1">{index + 1}</td>
-                        <td className="py-2 px-1 text-left">{item.title}</td>
-                        <td className="py-2 px-1">
+                        <td className="py-2 px-1  dark:text-black">
+                          {index + 1}
+                        </td>
+                        <td className="py-2 px-1  dark:text-black text-left">
+                          {item.title}
+                        </td>
+                        <td className="py-2 px-1  dark:text-black">
                           {moment(item.createdAt).format("DD.MM.YYYY")}
                         </td>
-                        <td className="py-2 px-1">
+                        <td className="py-2 px-1  dark:text-black">
                           {moment(item.updatedAt).format("DD.mm.yyyy")}
                         </td>
-                        <td className="py-2 px-1 flex">
+                        <td className="py-2 px-1 flex  dark:text-black">
                           <a
                             href={item.video}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center"
+                            className="flex items-center  dark:text-black"
                           >
                             Ko&apos;rish <BsArrowRight className="ml-2" />
                           </a>
                         </td>
-                        <td className="py-2">{item.description}</td>
+                        <td className="py-2  dark:text-black">
+                          {item.description}
+                        </td>
                         <td>
                           <button>
                             <svg
@@ -162,7 +172,7 @@ function Advertising() {
                             </svg>
                           </button>
                           <button
-                            className="text-red-500 ml-3"
+                            className="text-red-500 ml-3  dark:text-black"
                             onClick={() => deleteBtn(item.id)}
                           >
                             <svg

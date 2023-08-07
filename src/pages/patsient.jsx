@@ -42,7 +42,7 @@ function Bemorlar() {
                 <BsArrowLeft className="mx-3" />
                 orqaga
               </button>
-              <h3 className="text-center ml-[150px] font-bold text-[25px]">
+              <h3 className="text-center ml-[150px] font-bold text-[25px]  dark:text-black">
                 Bemorlar ro&apos;yhati
               </h3>
             </div>
@@ -50,7 +50,7 @@ function Bemorlar() {
           {hasInfo ? (
             <table className="table mx-auto">
               <thead>
-                <tr>
+                <tr className=" dark:text-black">
                   <th className=" py-2  text-left w-[50px]">№</th>
                   <th className=" py-2  text-left w-[200px]">Ism</th>
                   <th className=" py-2  text-left w-[200px]">
@@ -63,7 +63,7 @@ function Bemorlar() {
               <tbody>
                 {allPatsient.map((item, index) => {
                   return (
-                    <tr key={index}>
+                    <tr key={index} className=" dark:text-black">
                       <td className="p-2 ">{index + 1}</td>
                       <td className="p-2 ">{item.fullname}</td>
                       <td className="p-2 ">{item.birthday} </td>
