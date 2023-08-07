@@ -38,7 +38,7 @@ function Advertising() {
   }, []);
 
   const gotoAddBtn = () => {
-    window.location.pathname = "/advertising";
+    window.location.pathname = "/advertising/add";
   };
 
   const deleteBtn = async (id) => {
