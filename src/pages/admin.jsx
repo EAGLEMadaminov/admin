@@ -74,19 +74,19 @@ function Admin() {
             <Link href="/shifokor">Shifokorlar</Link>
           </li>
           <li className="py-2">
-            <Link href="/bemor">Bemorlar</Link>
+            <Link href="/patsient">Bemorlar</Link>
           </li>
           <li>
-            <Link href="/davolash">Davolash</Link>
+            <Link href="/healing">Davolash</Link>
           </li>
           <li className="py-2">
             <Link href="/tavsiyanoma">Tavsiyanoma</Link>
           </li>
           <li className="py-2">
-            <Link href="/dorilar">Dorilar</Link>
+            <Link href="/pills">Dorilar</Link>
           </li>
           <li className="py-2">
-            <Link href="/reklama">Reklama</Link>
+            <Link href="/advertising">Reklama</Link>
           </li>
         </ul>
       </div>

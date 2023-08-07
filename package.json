@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "circular-json": "^0.5.9",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
     "formik": "^2.4.3",

@@ -3,6 +3,7 @@ import { Formik, useFormik, Field, Form } from "formik";
 import img from "../../images/cite-logo.png";
 import Image from "next/image";
 import { BsArrowLeft } from "react-icons/bs";
+import CircularJSON from "circular-json";
 
 function Add() {
   const initialValues = {
@@ -12,25 +13,23 @@ function Add() {
   };
   const onSubmit = async (data) => {
     console.log(data);
-    const data2 = Object.entries(data).reduce((egg, [key, value]) => {
-      egg[key] = value;
-      return egg;
-    }, Object.create(null));
     let token = localStorage.getItem("token");
-    const response = await fetch("https://vitainline.uz/api/v1/pills", {
+    const response = await fetch("https://vitainline.uz/api/v1/advertisings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(data2),
+      body: CircularJSON.stringify(data),
     });
 
-    console.log(response.status);
+    if (response.status === 200) {
+      window.location.pathname = "/advertising";
+    }
   };
 
   const GoToBackBtn = () => {
-    window.location.pathname = "/dorilar";
+    window.location.pathname = "/advertising";
   };
   const formik = useFormik({
     initialValues,
@@ -94,7 +93,6 @@ function Add() {
                 placeholder="Videoga link kiriting"
               />
               <button
-                onClick={onSubmit}
                 type="submit"
                 className="mt-[24px] transform- py-[13px] bg-gradient-to-t from-[#1BB7B5] to-[#0EC5C9] text-white rounded-[12px]  font-[500] hover:bg-gradient-to-t hover:from-[#0F9694] hover:to-[#0A7476]"
               >

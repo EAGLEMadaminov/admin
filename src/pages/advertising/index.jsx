@@ -6,9 +6,9 @@ import { useRouter } from "next/router";
 import { BsArrowRight } from "react-icons/bs";
 import moment from "moment/moment";
 
-function Dorilar() {
+function Advertising() {
   const [hasInfo, setHasInfo] = useState(false);
-  const [allPills, setAllPills] = useState("");
+  const [allAdvertising, setAllAdvertising] = useState("");
 
   const router = useRouter();
 
@@ -17,18 +17,16 @@ function Dorilar() {
   };
   const fetchFunck = async () => {
     setHasInfo(false);
-    const token = localStorage.getItem("token");
-    const response = await fetch("https://vitainline.uz/api/v1/pills", {
+    const response = await fetch("https://vitainline.uz/api/v1/advertisings", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     });
     const jsonData = await response.json();
 
     if (response.status === 200 && jsonData.data) {
-      setAllPills(jsonData.data);
+      setAllAdvertising(jsonData.data);
       setHasInfo(true);
     }
   };
@@ -36,9 +34,30 @@ function Dorilar() {
     fetchFunck();
   }, []);
 
-const gotoAddBtn=()=>{
-  window.location.pathname='/dorilar/add'
-}
+  const gotoAddBtn = () => {
+    window.location.pathname = "/advertising/add";
+  };
+
+  const deleteBtn = async (id) => {
+    const token = localStorage.getItem("token");
+    const response = await fetch(
+      `https://vitainline.uz/api/v1/advertisings/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const newA = allAdvertising.filter((item) => {
+      if (item.id != id) {
+        return item;
+      }
+    });
+    setAllAdvertising(newA);
+  };
+
   return (
     <div className="min-h-[100vh]  bg-[#F7FEFE]">
       <div className="w-[1035px] mx-auto">
@@ -72,7 +91,10 @@ const gotoAddBtn=()=>{
               <h3 className="text-center  font-bold text-[25px]">
                 Dorilarlar ro&apos;yhati
               </h3>
-              <button onClick={gotoAddBtn} className=" dark:text-[#1B3B3C]  py-1 bg-[#F8FCFC] border rounded-[12px] w-[188px] font-[500]">
+              <button
+                onClick={gotoAddBtn}
+                className=" dark:text-[#1B3B3C]  py-1 bg-[#F8FCFC] border rounded-[12px] w-[188px] font-[500]"
+              >
                 Yangi qo&apos;shish
               </button>
             </div>
@@ -100,7 +122,7 @@ const gotoAddBtn=()=>{
                   </tr>
                 </thead>
                 <tbody>
-                  {allPills.map((item, index) => {
+                  {allAdvertising.map((item, index) => {
                     return (
                       <tr key={index} className="text-left">
                         <td className="py-2 px-1">{index + 1}</td>
@@ -139,7 +161,10 @@ const gotoAddBtn=()=>{
                               <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                             </svg>
                           </button>
-                          <button className="text-red-500 ml-3">
+                          <button
+                            className="text-red-500 ml-3"
+                            onClick={() => deleteBtn(item.id)}
+                          >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -170,4 +195,4 @@ const gotoAddBtn=()=>{
   );
 }
 
-export default Dorilar;
+export default Advertising;
